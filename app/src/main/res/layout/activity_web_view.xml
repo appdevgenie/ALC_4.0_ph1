@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="About ALC"
-        app:titleTextColor="#fff" />
+        app:titleTextColor="@color/color_white" />
 
     <WebView
         android:id="@+id/webView"

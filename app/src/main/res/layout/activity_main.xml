@@ -18,23 +18,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="@string/app_name"
-        app:titleTextColor="#fff" />
+        app:titleTextColor="@color/color_white" />
 
     <TextView
         android:id="@+id/tvHeader"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:layout_marginRight="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_small"
         android:fontFamily="sans-serif-condensed-light"
         android:gravity="center"
-        android:text="Welcome to ALC 4.0"
+        android:text="@string/welcome_to_alc_4_0"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintBottom_toTopOf="@+id/ivLogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
@@ -55,11 +55,11 @@
         android:fontFamily="sans-serif-condensed-light"
         android:foreground="@drawable/button_background"
         android:drawablePadding="15dp"
-        android:text="About ALC"
+        android:text="@string/about_alc"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
 
     <Button
         android:id="@+id/bMyProfile"
@@ -73,22 +73,16 @@
         android:drawableLeft="@drawable/ic_person_black_24dp"
         android:drawableTint="@color/colorAccent"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="My Profile"
+        android:text="@string/my_profile"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="@+id/bAboutALC"
         app:layout_constraintStart_toStartOf="@+id/bAboutALC"
         app:layout_constraintTop_toBottomOf="@+id/bAboutALC" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/ivLogo"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="32dp"
         android:alpha="0.5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

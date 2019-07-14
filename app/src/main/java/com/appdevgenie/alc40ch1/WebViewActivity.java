@@ -40,11 +40,9 @@ public class WebViewActivity extends AppCompatActivity {
             }
         });
 
-
         webView = findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new MyWebViewClient());
-        //webView.loadUrl("http://www.google.com");
         webView.loadUrl(URL);
     }
 
@@ -52,11 +50,7 @@ public class WebViewActivity extends AppCompatActivity {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-
-            //Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            //startActivity(intent);
             view.loadUrl(url);
-
             return true;
         }
 

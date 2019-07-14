@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">ALC 4 Phase 1</string>
+    <string name="welcome_to_alc_4_0">Welcome to ALC 4.0</string>
+    <string name="about_alc">About ALC</string>
+    <string name="my_profile">My Profile</string>
+    <string name="eugene_saayman">Eugene Saayman</string>
+    <string name="track">Track:</string>
+    <string name="android">Android</string>
+    <string name="country">Country:</string>
+    <string name="south_africa">South Africa</string>
+    <string name="email">Email:</string>
+    <string name="appdevgenie_gmail_com">appdevgenie@gmail.com</string>
+    <string name="phone_number">Phone Number:</string>
+    <string name="_2782_785_7626">+2782 785 7626</string>
+    <string name="slack_username">Slack username:</string>
+    <string name="eugene">\@eugene</string>
 </resources>

@@ -10,9 +10,6 @@ import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button bAbout;
-    private Button bProfile;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +23,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        bAbout = findViewById(R.id.bAboutALC);
-        bProfile = findViewById(R.id.bMyProfile);
+        Button bAbout = findViewById(R.id.bAboutALC);
+        Button bProfile = findViewById(R.id.bMyProfile);
         bAbout.setOnClickListener(this);
         bProfile.setOnClickListener(this);
     }
