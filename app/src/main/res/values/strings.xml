@@ -14,4 +14,5 @@
     <string name="_2782_785_7626">+2782 785 7626</string>
     <string name="slack_username">Slack username:</string>
     <string name="eugene">\@eugene</string>
+    <string name="no_internet">No internet connection available!</string>
 </resources>

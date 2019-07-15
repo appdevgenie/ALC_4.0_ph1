@@ -1,6 +1,7 @@
 package com.appdevgenie.alc40ch1;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.net.http.SslError;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -9,7 +10,9 @@ import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -43,10 +46,16 @@ public class WebViewActivity extends AppCompatActivity {
         webView = findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new MyWebViewClient());
-        webView.loadUrl(URL);
+        if(CheckNetworkConnection.isNetworkConnected(this)) {
+            webView.loadUrl(URL);
+        }else{
+            Toast.makeText(WebViewActivity.this, R.string.no_internet, Toast.LENGTH_LONG).show();
+            progressBar.setVisibility(View.GONE);
+        }
+
     }
 
-    private class MyWebViewClient extends WebViewClient{
+    private class MyWebViewClient extends WebViewClient {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -55,8 +64,46 @@ public class WebViewActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-            handler.proceed();
+        public void onReceivedSslError(WebView view, final SslErrorHandler handler, SslError error) {
+
+            String message;
+
+            switch (error.getPrimaryError()) {
+                case SslError.SSL_UNTRUSTED:
+                    message = "Certificate is untrusted.";
+                    break;
+                case SslError.SSL_EXPIRED:
+                    message = "Certificate has expired.";
+                    break;
+                case SslError.SSL_IDMISMATCH:
+                    message = "Certificate ID is mismatched.";
+                    break;
+                case SslError.SSL_NOTYETVALID:
+                    message = "Certificate is not yet valid.";
+                    break;
+                default:
+                    message = "Certificate error.";
+                    break;
+            }
+
+            final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+            builder.setMessage(message);
+            builder.setPositiveButton("continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    handler.proceed();
+                }
+            });
+            builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    handler.cancel();
+                    finish();
+                }
+            });
+            final AlertDialog dialog = builder.create();
+            dialog.setTitle("SSL Certificate Error");
+            dialog.show();
         }
 
         @Override
